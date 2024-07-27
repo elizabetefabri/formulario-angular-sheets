@@ -9,10 +9,11 @@ const router = jsonServer.router(path.join(__dirname, 'db.json'));
 
 const port = process.env.PORT || 8080;
 
+// Define rules for json-server-auth
 const rules = auth.rewriter({
-  "users": 660,
-  "login": 660,
-  "register": 660
+  "/users": 660,
+  "/login": 660,
+  "/register": 660
 });
 
 // Bind the router db to the app

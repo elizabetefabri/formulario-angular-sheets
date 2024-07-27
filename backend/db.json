@@ -3,7 +3,7 @@
     {
       "id": 1,
       "email": "admin@systers.xyz",
-      "password": "123456",
+      "password": "$2a$10$8ffF8UECecSdQrhREmQsSeHW4HCsQ1NJprN8/6i/eFqIWPBAzuFHK",
       "role": "admin"
     },
     {
