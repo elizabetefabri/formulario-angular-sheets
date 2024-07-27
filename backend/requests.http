@@ -1,4 +1,4 @@
-POST http://localhost:8080/login HTTP/1.1
+POST https://backend-eosin-phi.vercel.app/login HTTP/1.1
 content-type: application/json
 
 {
@@ -6,7 +6,7 @@ content-type: application/json
     "password": "123456"
 }
 
-GET http://localhost:8080/users HTTP/1.1
+GET https://backend-eosin-phi.vercel.app/users HTTP/1.1
 content-type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbUBzaXRlc2RpZ2l0YWlzLmNvbSIsImlhdCI6MTcyMjA0MTYwNSwiZXhwIjoxNzIyMDQ1MjA1LCJzdWIiOiIzIn0.Z-MCf57VvIRVB9eY2DQOOlc-uNT7_SnmiH9EeL8sJHE
 
