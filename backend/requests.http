@@ -8,6 +8,6 @@ content-type: application/json
 
 GET https://backend-eosin-phi.vercel.app/users HTTP/1.1
 content-type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbUBzaXRlc2RpZ2l0YWlzLmNvbSIsImlhdCI6MTcyMjA0MTYwNSwiZXhwIjoxNzIyMDQ1MjA1LCJzdWIiOiIzIn0.Z-MCf57VvIRVB9eY2DQOOlc-uNT7_SnmiH9EeL8sJHE
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY1MDIzMzkwOSwiZXhwIjoxNjUwMjM3NTA5LCJzdWIiOiIyIn0.nS99u-MBatZHbexMUenwsGdS8oV55BIaGwI6PSP7BC8
 
 
