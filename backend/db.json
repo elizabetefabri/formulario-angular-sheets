@@ -4,19 +4,22 @@
       "id": 1,
       "email": "admin@systers.xyz",
       "password": "$2a$10$8ffF8UECecSdQrhREmQsSeHW4HCsQ1NJprN8/6i/eFqIWPBAzuFHK",
-      "role": "admin"
+      "role": "admin",
+      "name": "Admin User"
     },
     {
       "email": "newuser@systers.xyz",
       "password": "$2a$10$8ffF8UECecSdQrhREmQsSeHW4HCsQ1NJprN8/6i/eFqIWPBAzuFHK",
       "role": "user",
-      "id": 2
+      "id": 2,
+      "name": "New User"
     },
     {
       "email": "adm@sitesdigitais.com",
       "password": "$2a$10$WU6dhNYIVYWPXPrzYwWZIeYyZFz29iT4DUzwnjJi3lbn3BmwXPpvu",
       "role": "admin",
-      "id": 3
+      "id": 3,
+      "name": "Admin Sites Digitais"
     }
   ]
 }
