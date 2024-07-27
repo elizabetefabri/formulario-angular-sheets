@@ -1,0 +1,12 @@
+.mat-icon {
+  color: #373737;
+  height: 1.75rem; /* Altera para 28px */
+  width: 1.75rem; /* Altera para 28px */
+}
+
+@media (max-width: 640px) {
+  .content__login {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}

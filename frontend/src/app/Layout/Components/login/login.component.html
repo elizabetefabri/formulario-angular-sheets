@@ -1,0 +1,43 @@
+<section class="min-h-screen flex flex-col justify-center items-center bg-gray-100">
+  <main class="flex flex-col justify-center items-center max-w-lg w-full mx-auto py-9 px-8 bg-white rounded shadow-md">
+    <div class="mb-8">
+      <img src="../../../../assets/logo.png" width="200" alt="Logo">
+    </div>
+    <div class="w-full max-w-md">
+      <h3 class="text-zinc-800 mb-10 text-2xl font-bold">Cadastro de pré-candidaturas</h3>
+      <form [formGroup]="loginData" (ngSubmit)="onLogin()" class="space-y-4 mb-5 max-w-md w-full">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Usuário</label>
+          <input class="border border-gray-300 p-2 w-full h-12 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300" formControlName="email" type="email" placeholder="Digite seu e-mail" id="email" autocomplete="username" required>
+        </div>
+        <div class="relative">
+          <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
+          <input class="border border-gray-300 p-2 w-full h-12 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Senha" id="password" autocomplete="current-password" required>
+          <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pt-4 pr-3 flex items-center text-gray-600">
+            <mat-icon aria-hidden="false" class="text-xl">
+              {{ hide ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+        </div>
+        <div class="flex justify-between items-center space-x-2.5">
+          <button type="submit" class="bg-zinc-800 text-white p-2 w-full h-12 rounded-md hover:bg-black hover:text-white" [disabled]="loginData.invalid || loading">
+            Acessar
+          </button>
+        </div>
+        <div class="flex justify-between items-center space-x-2.5 mt-5">
+          <span class="text-xl text-zinc-800">Não possui cadastro?</span>
+          <button type="button" class="bg-zinc-800 text-white p-2 w-full h-12 rounded-md hover:bg-black hover:text-white" (click)="goToCadastro()">
+            Cadastre-se
+          </button>
+        </div>
+      </form>
+    </div>
+    <footer class="py-8">
+      <p class="text-zinc-700 text-center">Angular © 2024
+        <em class="text-zinc-700"><a href="https://elizabetefabri.github.io/" class="hover:underline">
+            Desenvolvido por Elizabete Fabri
+          </a></em>
+      </p>
+    </footer>
+  </main>
+</section>
