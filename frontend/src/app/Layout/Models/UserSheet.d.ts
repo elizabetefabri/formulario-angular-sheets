@@ -1,0 +1,31 @@
+export interface UserSheet {
+  id: number;
+  nomeCivil: string;
+  nomeReceita: string;
+  tituloEleitoral: string;
+  cpf: string;
+  rg: string;
+  dataExpedicaoRg: string;
+  orgaoExpedidorRg: string;
+  estadoExpedicaoRg: string;
+  documentoClasse?: string;
+  municipioNascimento: string;
+  dataNascimento: string;
+  nacionalidade: string;
+  nomeMae: string;
+  nomePai?: string;
+  deficiencia: string;
+  qualDeficiencia?: string;
+  telefone1: string;
+  appsDisponiveis: string[];
+  telefone2?: string;
+  appsDisponiveis2?: string[];
+  estadoCivil: string;
+  racaCor: string;
+  genero: string;
+  identidadeGenero?: string;
+  grauInstrucao: string;
+  ocupacao: string;
+  informarOutros?: string;
+  adminPublica: string;
+}
