@@ -25,6 +25,7 @@ export class AuthService {
       .pipe(
         tap((response) => {
           localStorage.setItem('token', response.accessToken);
+          localStorage.setItem('userName', response.user.name);
           this.currentUser.next(response.user);
         }),
         catchError((error) => {
@@ -38,6 +39,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('idUser');
     localStorage.removeItem('role');
+    localStorage.removeItem('userName');
     this.router.navigate(['/login']);
     this.currentUser.next(null);
   }

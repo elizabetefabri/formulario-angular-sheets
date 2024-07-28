@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
       this.auth.login(email, password).subscribe({
         next: (res) => {
           localStorage.setItem('token', res.accessToken);
+          localStorage.setItem('userName', res.user.name);
           localStorage.setItem('idUser', res.user.id);
           localStorage.setItem('role', res.user.role);
           this.redirectUser(res.user.role);
-          this.listUsers(); // Chama o método para listar usuários após login
         },
         error: (error) => {
           this.showSnackBar('Invalid credentials', 'Error');
@@ -58,13 +58,16 @@ export class LoginComponent implements OnInit {
   }
 
   redirectUser(role: string): void {
-    switch (role) {
-      case 'admin':
-        this.router.navigate(['formulario']);
-        break;
-      default:
-        this.router.navigate(['']);
-        break;
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+      switch (role) {
+        case 'admin':
+          this.router.navigate([`/formulario/${encodeURIComponent(userName)}`]);
+          break;
+        default:
+          this.router.navigate(['/']);
+          break;
+      }
     }
   }
 
@@ -74,16 +77,5 @@ export class LoginComponent implements OnInit {
 
   goToCadastro(): void {
     this.router.navigate(['/cadastro']);
-  }
-
-  listUsers(): void {
-    this.auth.getUsers().subscribe({
-      next: (res) => {
-        console.log('Users:', res);
-      },
-      error: (error) => {
-        console.error('Error fetching users:', error);
-      },
-    });
   }
 }
