@@ -1,0 +1,17 @@
+/* src/styles.css ou outro arquivo CSS global */
+
+.text-color-font-orange {
+  color: #FFA500; /* Exemplo de cor laranja */
+}
+
+.text-color-font-white {
+  color: #FFFFFF;
+}
+
+.bg-color-header {
+  background-color: #fefefb; /* Exemplo de cor de fundo */
+}
+
+.text-color-gray-icon {
+  color: #fCA3AF; /* Exemplo de cor cinza */
+}

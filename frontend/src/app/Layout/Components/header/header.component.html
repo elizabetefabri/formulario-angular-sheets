@@ -1,0 +1,27 @@
+<header class="bg-color-header text-color-font-white p-5 shadow-md">
+  <nav class="max-w-[1440px] h-12 w-full mx-auto flex justify-between items-center">
+    <div class="flex items-center">
+      <a routerLink="/" class="pl-5">
+        <span class="text-color-font-orange">
+          <em class="text-color-font-orange pr-2">LOGO</em>
+        </span>
+      </a>
+    </div>
+
+    <button class="md:hidden" (click)="toggleMenu()">
+      <img src="https://github.com/elizabetefabri/SAP012-burger-queen-api-client/blob/main/burger-queen/src/assets/images/menu.svg" class="text-color-gray-icon h-10 w-10" alt="">
+    </button>
+
+    <div class="hidden md:flex items-center space-x-5" [ngClass]="{'flex': isMenuOpen, 'hidden': !isMenuOpen}">
+      <button (click)="openModal()" class="flex items-center">
+        <mat-icon aria-hidden="false" fontIcon="assignment" class="text-color-gray-icon h-10 w-10"></mat-icon>
+        <span class="text-color-gray-icon mt-3">{{ itemCount }}</span>
+      </button>
+
+      <button (click)="deslogar()" class="flex items-center bg-zinc-900 text-orange-50 p-3 rounded">
+        <em class="pr-3 pl-3">Sair</em>
+        <mat-icon aria-hidden="false" fontIcon="door_back" class="text-orange-50 h-10 w-10"></mat-icon>
+      </button>
+    </div>
+  </nav>
+</header>
