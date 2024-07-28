@@ -10,6 +10,7 @@ import { LoginComponent } from './Layout/Components/login/login.component';
 import { AppModuleModule } from './Shared/AppModule/app-module.module';
 import { ErrorDialogComponent } from './Shared/Components/error-dialog/error-dialog.component';
 import { CreateDataComponent } from './Layout/Components/create-data/create-data.component';
+import { HeaderComponent } from './Layout/Components/header/header.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreateDataComponent } from './Layout/Components/create-data/create-data
     AppComponent,
     LoginComponent,
     ErrorDialogComponent,
-    CreateDataComponent
+    CreateDataComponent,
+    HeaderComponent
   ],
   imports: [
     AppModuleModule,
