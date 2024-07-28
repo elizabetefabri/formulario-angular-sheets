@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'formulario', component: CreateDataComponent},
+  { path: 'formulario/:userName', component: CreateDataComponent},
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({
