@@ -1,0 +1,10 @@
+<section [formGroup]="formGroup">
+  <label for="racaCor" class="block text-sm font-medium text-gray-700">Raça/Cor:</label>
+  <select id="racaCor" matNativeControl class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="racaCor" required>
+    <option value="branca">Branca</option>
+    <option value="preta">Preta</option>
+    <option value="parda">Parda</option>
+    <option value="amarela">Amarela</option>
+    <option value="indigina">Indígena</option>
+  </select>
+</section>

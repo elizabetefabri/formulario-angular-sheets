@@ -1,0 +1,7 @@
+
+<div [formGroup]="formGroup">
+  <label for="estadoExpedicaoRg" class="block text-sm font-medium text-gray-700">Estado de expedição do RG:</label>
+  <select id="estadoExpedicaoRg" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="estadoExpedicaoRg" required>
+    <option *ngFor="let sigla of estadoKeys" [value]="sigla">{{ estados[sigla] }}</option>
+  </select>
+</div>
