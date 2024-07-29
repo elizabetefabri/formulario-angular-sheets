@@ -1,0 +1,14 @@
+<section [formGroup]="formGroup">
+  <label for="grauInstrucao" class="block text-sm font-medium text-gray-700">Grau de instrução:</label>
+  <select id="grauInstrucao" matNativeControl class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="grauInstrucao" required>
+    <option value="analfabeto">Analfabeto(a)</option>
+    <option value="fundamental_incompleto">Fundamental incompleto</option>
+    <option value="fundamental_completo">Fundamental completo</option>
+    <option value="medio_incompleto">Médio incompleto</option>
+    <option value="medio_completo">Médio completo</option>
+    <option value="superior_incompleto">Superior incompleto</option>
+    <option value="superior_completo">Superior completo</option>
+    <option value="pos_incompleto">Pós-graduação/Mestrado/Doutorado incompleto</option>
+    <option value="pos_completo">Pós-graduação/Mestrado/Doutorado completo</option>
+  </select>
+</section>

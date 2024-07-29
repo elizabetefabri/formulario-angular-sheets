@@ -1,0 +1,11 @@
+<section [formGroup]="formGroup">
+  <label for="estadoCivil" class="block text-sm font-medium text-gray-700">Estado civil:</label>
+  <select id="estadoCivil" matNativeControl class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="estadoCivil" required>
+    <option value="solteiro">Solteiro(a)</option>
+    <option value="casado">Casado(a)</option>
+    <option value="separado">Separado(a) judicialmente</option>
+    <option value="divorciado">Divorciado(a)</option>
+    <option value="viuvo">Viúvo(a)</option>
+    <option value="uniaoEstavel">União estável</option>
+  </select>
+</section>
