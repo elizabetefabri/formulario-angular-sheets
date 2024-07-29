@@ -12,7 +12,13 @@
         </div>
         <div class="relative">
           <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
-          <input class="border border-gray-300 p-2 w-full h-12 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Senha" id="password" autocomplete="current-password" required>
+          <input
+          class="border border-gray-300 p-2 w-full h-12 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300"
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+          placeholder="Senha"
+          id="password"
+          required>
           <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pt-4 pr-3 flex items-center text-gray-600">
             <mat-icon aria-hidden="false" class="text-xl">
               {{ hide ? 'visibility_off' : 'visibility' }}
