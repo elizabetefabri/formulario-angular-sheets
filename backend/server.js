@@ -1,33 +1,28 @@
-const express = require('express');
-const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
-const path = require('path');
+const middlewares = jsonServer.defaults();
 
-const app = express();
+const app = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
-
-// Middleware para CORS
-const corsOptions = {
-  origin: 'http://localhost:4200', // substitua pelo URL do seu front-end
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  exposedHeaders: ['Authorization']
-};
-
-app.use(cors(corsOptions));
-app.use(express.json());
 
 const port = process.env.PORT || 8080;
 
-// Regras de autenticação
+// Define rules for json-server-auth
 const rules = auth.rewriter({
   "/users": 660,
   "/login": 660,
   "/register": 660
 });
 
+// Bind the router db to the app
 app.db = router.db;
+
+// Apply middlewares
+app.use(middlewares);
+
+// Apply auth and routes rules
 app.use(rules);
 app.use(auth);
 app.use(router);
