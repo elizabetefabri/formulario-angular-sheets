@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
+const cors = require('cors');
 const middlewares = jsonServer.defaults();
 
 const app = jsonServer.create();
@@ -11,9 +12,9 @@ const port = process.env.PORT || 8080;
 
 // Define rules for json-server-auth
 const rules = auth.rewriter({
-  "/users": 660,
-  "/login": 660,
-  "/register": 660
+  "users": 660,
+  "login": 660,
+  "register": 660
 });
 
 // Bind the router db to the app
@@ -21,6 +22,9 @@ app.db = router.db;
 
 // Apply middlewares
 app.use(middlewares);
+
+// Apply CORS
+app.use(cors());
 
 // Apply auth and routes rules
 app.use(rules);
