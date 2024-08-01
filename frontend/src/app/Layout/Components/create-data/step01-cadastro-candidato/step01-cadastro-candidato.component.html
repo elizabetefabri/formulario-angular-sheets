@@ -23,8 +23,7 @@
   </div>
   <!-- Data de Expedição do RG: -->
   <div class="mb-4">
-    <label for="dataExpedicaoRg" class="block text-sm font-medium text-gray-700">Data de Expedição do RG:</label>
-    <input id="dataExpedicaoRg" matInput type="date" class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="dataExpedicaoRg" required>
+    <app-input-data-expedicao [formGroup]="googleSheetForm"></app-input-data-expedicao>
   </div>
   <!-- Órgão Expedidor do RG: -->
   <div class="mb-4">
@@ -47,8 +46,7 @@
   </div>
   <!-- Data de Nascimento -->
   <div class="mb-4">
-    <label for="dataNascimento" class="block text-sm font-medium text-gray-700">Data de Nascimento:</label>
-    <input id="dataNascimento" matInput type="date" class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="dataNascimento" required>
+    <app-input-data-nascimento [formGroup]="googleSheetForm"></app-input-data-nascimento>
   </div>
   <!-- Nacionalidade  -->
   <div class="mb-4">

@@ -1,4 +1,19 @@
-<div class="mb-4" [formGroup]="formGroup">
+<div [formGroup]="formGroup">
   <label for="tituloEleitoral" class="block text-sm font-medium text-gray-700">Título eleitoral:</label>
-  <input id="tituloEleitoral" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" placeholder="0000.0000.0000" formControlName="tituloEleitoral" required>
+  <input
+    id="tituloEleitoral"
+    matInput
+    class="border p-2 w-full h-10 rounded-md focus:outline-none"
+    [ngClass]="{
+      'border-red-500': formGroup.get('tituloEleitoral')?.invalid && formGroup.get('tituloEleitoral')?.touched,
+      'border-green-500': formGroup.get('tituloEleitoral')?.valid
+    }"
+    placeholder="0000.0000.0000"
+    formControlName="tituloEleitoral"
+    mask="0000.0000.0000"
+    required
+  >
+  <div *ngIf="formGroup.get('tituloEleitoral')?.invalid && formGroup.get('tituloEleitoral')?.touched" class="text-red-500">
+    Título Eleitoral inválido
+  </div>
 </div>

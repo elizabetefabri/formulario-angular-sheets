@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SheetService } from '../../Services/ServiceSheet/sheet.service';
 import { Router } from '@angular/router';
 
@@ -61,99 +61,98 @@ export class CreateDataComponent implements OnInit {
       dataNascimento: ['', Validators.required],
       nacionalidade: ['', Validators.required],
       nomeMae: ['', Validators.required],
-      nomePai: ['', Validators.required],
+      nomePai: [''],
       deficiencia: ['', Validators.required],
-      qualDeficiencia: ['', Validators.required],
+      qualDeficiencia: [''],
       telefone1: ['', Validators.required],
-      appsDisponiveis: ['', Validators.required],
-      telefone2: ['', Validators.required],
-      appsDisponiveis2: ['', Validators.required],
+      appsDisponiveis: this.fb.array([], Validators.required),
+      telefone2: [''],
+      appsDisponiveis2: this.fb.array([]),
       estadoCivil: ['', Validators.required],
       racaCor: ['', Validators.required],
       genero: ['', Validators.required],
-      identidadeGenero: ['', Validators.required],
+      identidadeGenero: [''],
       grauInstrucao: ['', Validators.required],
       ocupacao: ['', Validators.required],
-      informarOutros: ['', Validators.required],
+      informarOutros: [''],
       adminPublica: ['', Validators.required],
     });
-    this.userName = localStorage.getItem('userName');
+    this.userName = localStorage.getItem('userName') || 'Usuário';
   }
+
   ngOnInit(): void {}
+
+  get appsDisponiveis(): FormArray {
+    return this.googleSheetForm.get('appsDisponiveis') as FormArray;
+  }
+
+  get appsDisponiveis2(): FormArray {
+    return this.googleSheetForm.get('appsDisponiveis2') as FormArray;
+  }
+
+  onCheckboxChange(event: any, formArrayName: string) {
+    const formArray: FormArray = this.googleSheetForm.get(formArrayName) as FormArray;
+
+    if (event.target.checked) {
+      formArray.push(this.fb.control(event.target.value));
+    } else {
+      let i: number = 0;
+      formArray.controls.forEach((ctrl: any) => {
+        if (ctrl.value == event.target.value) {
+          formArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+  }
 
   public onSubmit() {
     if (this.googleSheetForm.valid) {
       console.log(this.googleSheetForm.value);
 
-      const usuarioLogado = this.googleSheetForm.value.usuarioLogado;
-      const nomeCivil = this.googleSheetForm.value.nomeCivil;
-      const nomeReceita = this.googleSheetForm.value.nomeReceita;
-      const tituloEleitoral = this.googleSheetForm.value.tituloEleitoral;
-      const cpf = this.googleSheetForm.value.cpf;
-      const rg = this.googleSheetForm.value.rg;
-      const dataExpedicaoRg = this.googleSheetForm.value.dataExpedicaoRg;
-      const orgaoExpedidorRg = this.googleSheetForm.value.orgaoExpedidorRg;
-      // const estadoExpedicaoRg = this.googleSheetForm.value.estadoExpedicaoRg;
-
       const formData = this.googleSheetForm.value;
       formData.estadoExpedicaoRg = estados[formData.estadoExpedicaoRg];
-
-      const documentoClasse = this.googleSheetForm.value.documentoClasse;
-      const municipioNascimento = this.googleSheetForm.value.municipioNascimento;
-      const dataNascimento = this.googleSheetForm.value.dataNascimento;
-      const nacionalidade = this.googleSheetForm.value.nacionalidade;
-      const nomeMae = this.googleSheetForm.value.nomeMae;
-      const nomePai = this.googleSheetForm.value.nomePai;
-      const deficiencia = this.googleSheetForm.value.deficiencia;
-      const qualDeficiencia = this.googleSheetForm.value.qualDeficiencia;
-      const telefone1 = this.googleSheetForm.value.telefone1;
-      const appsDisponiveis = this.googleSheetForm.value.appsDisponiveis;
-      const telefone2 = this.googleSheetForm.value.telefone2;
-      const appsDisponiveis2 = this.googleSheetForm.value.appsDisponiveis2;
-      const estadoCivil = this.googleSheetForm.value.estadoCivil;
-      const racaCor = this.googleSheetForm.value.racaCor;
-      const genero = this.googleSheetForm.value.genero;
-      const identidadeGenero = this.googleSheetForm.value.identidadeGenero;
-      const grauInstrucao = this.googleSheetForm.value.grauInstrucao;
-      const ocupacao = this.googleSheetForm.value.ocupacao;
-      const informarOutros = this.googleSheetForm.value.informarOutros;
-      const adminPublica = this.googleSheetForm.value.adminPublica;
+      formData.appsDisponiveis = this.appsDisponiveis.value;
+      formData.appsDisponiveis2 = this.appsDisponiveis2.value;
 
       this.serviceSheet
-        .createSheet(usuarioLogado,
-          nomeCivil,
-          nomeReceita,
-          tituloEleitoral,
-          cpf,
-          rg,
-          dataExpedicaoRg,
-          orgaoExpedidorRg,
+        .createSheet(
+          formData.usuarioLogado,
+          formData.nomeCivil,
+          formData.nomeReceita,
+          formData.tituloEleitoral,
+          formData.cpf,
+          formData.rg,
+          formData.dataExpedicaoRg,
+          formData.orgaoExpedidorRg,
           formData.estadoExpedicaoRg,
-          documentoClasse,
-          municipioNascimento,
-          dataNascimento,
-          nacionalidade,
-          nomeMae,
-          nomePai,
-          deficiencia,
-          qualDeficiencia,
-          telefone1,
-          appsDisponiveis,
-          telefone2,
-          appsDisponiveis2,
-          estadoCivil,
-          racaCor,
-          genero,
-          identidadeGenero,
-          grauInstrucao,
-          ocupacao,
-          informarOutros,
-          adminPublica)
+          formData.documentoClasse,
+          formData.municipioNascimento,
+          formData.dataNascimento,
+          formData.nacionalidade,
+          formData.nomeMae,
+          formData.nomePai,
+          formData.deficiencia,
+          formData.qualDeficiencia,
+          formData.telefone1,
+          formData.appsDisponiveis,
+          formData.telefone2,
+          formData.appsDisponiveis2,
+          formData.estadoCivil,
+          formData.racaCor,
+          formData.genero,
+          formData.identidadeGenero,
+          formData.grauInstrucao,
+          formData.ocupacao,
+          formData.informarOutros,
+          formData.adminPublica
+        )
         .subscribe({
           next: (res) => {
             console.log(res);
             if (res) {
-              this.router.navigate(['/list-data']);
+              this.router.navigate(['/formulario']);
             }
           },
           error: (error) => {
@@ -161,7 +160,7 @@ export class CreateDataComponent implements OnInit {
           },
         });
     } else {
-      console.log('Formmulário inválido!');
+      console.log('Formulário inválido!');
     }
   }
 }

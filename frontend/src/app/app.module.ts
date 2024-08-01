@@ -22,7 +22,9 @@ import { SelectEstadoCivilComponent } from './Layout/Components/create-data/step
 import { SelectGrauInstrucaoComponent } from './Layout/Components/create-data/step01-cadastro-candidato/components/select-grau-instrucao/select-grau-instrucao.component';
 import { SelectOcupacaoComponent } from './Layout/Components/create-data/step01-cadastro-candidato/components/select-ocupacao/select-ocupacao.component';
 import { InputTelefone2Component } from './Layout/Components/create-data/step01-cadastro-candidato/components/input-telefone2/input-telefone2.component';
-
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { InputDataExpedicaoComponent } from './Layout/Components/create-data/step01-cadastro-candidato/components/input-data-expedicao/input-data-expedicao.component';
+import { InputDataNascimentoComponent } from './Layout/Components/create-data/step01-cadastro-candidato/components/input-data-nascimento/input-data-nascimento.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { InputTelefone2Component } from './Layout/Components/create-data/step01-
     SelectEstadoCivilComponent,
     SelectGrauInstrucaoComponent,
     SelectOcupacaoComponent,
-    InputTelefone2Component
+    InputTelefone2Component,
+    InputDataExpedicaoComponent,
+    InputDataNascimentoComponent
   ],
   imports: [
     AppModuleModule,
@@ -50,9 +54,13 @@ import { InputTelefone2Component } from './Layout/Components/create-data/step01-
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
+  providers: [
+    provideNgxMask()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

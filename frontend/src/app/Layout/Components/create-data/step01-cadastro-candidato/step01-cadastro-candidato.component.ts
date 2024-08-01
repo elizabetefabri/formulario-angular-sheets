@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-step01-cadastro-candidato',
@@ -39,9 +39,9 @@ export class Step01CadastroCandidatoComponent implements OnInit, OnChanges {
     this.googleSheetForm.addControl('deficiencia', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('qualDeficiencia', this.fb.control(''));
     this.googleSheetForm.addControl('telefone1', this.fb.control('', Validators.required));
-    this.googleSheetForm.addControl('appsDisponiveis', this.fb.control('', Validators.required));
+    this.googleSheetForm.addControl('appsDisponiveis', this.fb.array([], Validators.required));
     this.googleSheetForm.addControl('telefone2', this.fb.control(''));
-    this.googleSheetForm.addControl('appsDisponiveis2', this.fb.control(''));
+    this.googleSheetForm.addControl('appsDisponiveis2', this.fb.array([]));
     this.googleSheetForm.addControl('estadoCivil', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('racaCor', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('genero', this.fb.control('', Validators.required));

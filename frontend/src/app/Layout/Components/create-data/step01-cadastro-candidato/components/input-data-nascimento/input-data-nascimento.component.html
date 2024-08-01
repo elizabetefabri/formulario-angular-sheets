@@ -1,0 +1,20 @@
+<section [formGroup]="formGroup">
+  <label for="data" class="block text-sm font-medium text-gray-700">Data de Nascimento:</label>
+  <input
+    id="data"
+    matInput
+
+    class="border p-2 w-full h-10 rounded-md focus:outline-none"
+    [ngClass]="{
+      'border-red-500': formGroup.get('data')?.invalid && formGroup.get('data')?.touched,
+      'border-green-500': formGroup.get('data')?.valid
+    }"
+    placeholder="dd/mm/aaaa"
+    formControlName="data"
+    mask="00/00/0000"
+    required
+  >
+  <div *ngIf="formGroup.get('data')?.invalid && formGroup.get('data')?.touched" class="text-red-500">
+    Data inválida
+  </div>
+</section>

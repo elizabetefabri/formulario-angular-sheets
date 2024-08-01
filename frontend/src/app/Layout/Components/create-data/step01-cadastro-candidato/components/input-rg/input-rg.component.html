@@ -1,4 +1,19 @@
-<section [formGroup]="formGroup">
+<div [formGroup]="formGroup">
   <label for="rg" class="block text-sm font-medium text-gray-700">RG:</label>
-  <input id="rg" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" placeholder="00.000.000-00" formControlName="rg" required>
-</section>
+  <input
+    id="rg"
+    matInput
+    class="border p-2 w-full h-10 rounded-md focus:outline-none"
+    [ngClass]="{
+      'border-red-500': formGroup.get('rg')?.invalid && formGroup.get('rg')?.touched,
+      'border-green-500': formGroup.get('rg')?.valid
+    }"
+    placeholder="00.000.000-0"
+    formControlName="rg"
+    mask="AA.000.000-00"
+    required
+  >
+  <div *ngIf="formGroup.get('rg')?.invalid && formGroup.get('rg')?.touched" class="text-red-500">
+    RG inválido
+  </div>
+</div>

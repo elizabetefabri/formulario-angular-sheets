@@ -1,4 +1,19 @@
 <section [formGroup]="formGroup">
   <label for="cpf" class="block text-sm font-medium text-gray-700">CPF:</label>
-  <input id="cpf" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" placeholder="000.000.000-00" formControlName="cpf" required>
+  <input
+    id="cpf"
+    matInput
+    class="border p-2 w-full h-10 rounded-md focus:outline-none"
+    [ngClass]="{
+      'border-red-500': formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched,
+      'border-green-500': formGroup.get('cpf')?.valid
+    }"
+    placeholder="000.000.000-00"
+    formControlName="cpf"
+    mask="000.000.000-00"
+    required
+  >
+  <div *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched" class="text-red-500">
+    CPF inválido
+  </div>
 </section>

@@ -1,42 +1,42 @@
-<div [formGroup]="formGroup" class="mb-4">
+<section [formGroup]="formGroup" class="mb-4 border border-gray-300 p-2 rounded">
   <label for="telefone2" class="block text-sm font-medium text-gray-700">Telefone 2:</label>
   <input id="telefone2" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" placeholder="(00) 00000-0000" formControlName="telefone2">
-</div>
 
-<div [formGroup]="formGroup" class="mb-4 border border-gray-300 p-2 rounded">
-  <label class="block text-sm font-medium text-gray-700">Aplicativos disponíveis:</label>
-  <div class="flex flex-wrap items-center space-x-2">
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="telegram">
-      <span class="ml-2">Telegram</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="signal">
-      <span class="ml-2">Signal</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="wechat">
-      <span class="ml-2">WeChat</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="viber">
-      <span class="ml-2">Viber</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="skype">
-      <span class="ml-2">Skype</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="google_chat">
-      <span class="ml-2">Google Chat</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="messenger">
-      <span class="ml-2">Messenger</span>
-    </label>
-    <label class="inline-flex items-center">
-      <input type="checkbox" class="form-checkbox" formControlName="appsDisponiveis2" value="whatsapp">
-      <span class="ml-2">Whatsapp</span>
-    </label>
+  <div [formGroup]="formGroup" class="mt-2 border border-gray-300 p-2 rounded">
+    <label class="block text-sm font-medium text-gray-700">Aplicativos disponíveis:</label>
+    <div class="flex flex-wrap items-center space-x-2">
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="telegram">
+        <span class="ml-2">Telegram</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="signal">
+        <span class="ml-2">Signal</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="wechat">
+        <span class="ml-2">WeChat</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="viber">
+        <span class="ml-2">Viber</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="skype">
+        <span class="ml-2">Skype</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="google_chat">
+        <span class="ml-2">Google Chat</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="messenger">
+        <span class="ml-2">Messenger</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox" value="whatsapp">
+        <span class="ml-2">Whatsapp</span>
+      </label>
+    </div>
   </div>
-</div>
+</section>
