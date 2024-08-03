@@ -4,7 +4,6 @@ const jsonServer = require('json-server');
 const auth = require('json-server-auth');
 const middlewares = jsonServer.defaults();
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const dataRoutes = require('./src/routes/dataRoutes');
 const dotenv = require('dotenv');
@@ -29,15 +28,17 @@ app.db = router.db;
 // Apply middlewares
 app.use(middlewares);
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json()); // substitui bodyParser.json()
 
 // Apply auth and routes rules
 app.use(rules);
 app.use(auth);
-app.use(router);
 
 // Add Google Sheets data routes
-app.use('/api', dataRoutes);
+app.use('/api/data', dataRoutes);
+
+// Apply json-server router after all other middlewares and routes
+app.use(router);
 
 app.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);

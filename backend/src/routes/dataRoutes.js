@@ -2,7 +2,7 @@ const express = require('express');
 const { getData, appendData } = require('../services/googleSheetsService');
 const router = express.Router();
 
-router.get('/data', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const data = await getData();
     res.json(data);
@@ -11,7 +11,7 @@ router.get('/data', async (req, res) => {
   }
 });
 
-router.post('/data', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const {
       nomeCivil, nomeReceita, tituloEleitoral, cpf, rg, dataExpedicaoRg, orgaoExpedidorRg,
