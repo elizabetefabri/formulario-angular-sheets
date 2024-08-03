@@ -8,146 +8,35 @@ import { UserSheet } from '../../Models/UserSheet';
   providedIn: 'root',
 })
 export class SheetService {
+  private apiUrl = `${environment.API}`;
+
   constructor(private http: HttpClient) {}
 
-  createSheet(
-    usuarioLogado: string,
-    nomeCivil: string,
-    nomeReceita: string,
-    tituloEleitoral: string,
-    cpf: string,
-    rg: string,
-    dataExpedicaoRg: string,
-    orgaoExpedidorRg: string,
-    estadoExpedicaoRg: string,
-    documentoClasse: string,
-    municipioNascimento: string,
-    dataNascimento: string,
-    nacionalidade: string,
-    nomeMae: string,
-    nomePai: string,
-    deficiencia: string,
-    qualDeficiencia: string,
-    telefone1: string,
-    appsDisponiveis: string[],
-    telefone2: string,
-    appsDisponiveis2: string[],
-    estadoCivil: string,
-    racaCor: string,
-    genero: string,
-    identidadeGenero: string,
-    grauInstrucao: string,
-    ocupacao: string,
-    informarOutros: string,
-    adminPublica: string
-  ): Observable<UserSheet> {
-    return this.http.post<UserSheet>(`${environment.CONNECTION_URL}`, {
-      usuarioLogado,
-      nomeCivil,
-      nomeReceita,
-      tituloEleitoral,
-      cpf,
-      rg,
-      dataExpedicaoRg,
-      orgaoExpedidorRg,
-      estadoExpedicaoRg,
-      documentoClasse,
-      municipioNascimento,
-      dataNascimento,
-      nacionalidade,
-      nomeMae,
-      nomePai,
-      deficiencia,
-      qualDeficiencia,
-      telefone1,
-      appsDisponiveis,
-      telefone2,
-      appsDisponiveis2,
-      estadoCivil,
-      racaCor,
-      genero,
-      identidadeGenero,
-      grauInstrucao,
-      ocupacao,
-      informarOutros,
-      adminPublica,
-    });
+  createSheet(formData: any): Observable<UserSheet> {
+    return this.http.post<UserSheet>(this.apiUrl, formData);
   }
 
   listSheet(): Observable<UserSheet[]> {
-    return this.http.get<UserSheet[]>(`${environment.CONNECTION_URL}`);
+    return this.http.get<UserSheet[]>(this.apiUrl);
   }
 
   deleteSheet(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.CONNECTION_URL}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   getSheetDataById(id: number): Observable<UserSheet> {
-    return this.http.get<UserSheet>(`${environment.CONNECTION_URL}/${id}`);
+    return this.http.get<UserSheet>(`${this.apiUrl}/${id}`);
   }
 
-  updateSheet(
-    id: number,
-    usuarioLogado: string,
-    nomeCivil: string,
-    nomeReceita: string,
-    tituloEleitoral: string,
-    cpf: string,
-    rg: string,
-    dataExpedicaoRg: string,
-    orgaoExpedidorRg: string,
-    estadoExpedicaoRg: string,
-    documentoClasse: string,
-    municipioNascimento: string,
-    dataNascimento: string,
-    nacionalidade: string,
-    nomeMae: string,
-    nomePai: string,
-    deficiencia: string,
-    qualDeficiencia: string,
-    telefone1: string,
-    appsDisponiveis: string[],
-    telefone2: string,
-    appsDisponiveis2: string[],
-    estadoCivil: string,
-    racaCor: string,
-    genero: string,
-    identidadeGenero: string,
-    grauInstrucao: string,
-    ocupacao: string,
-    informarOutros: string,
-    adminPublica: string
-  ): Observable<UserSheet> {
-    return this.http.put<UserSheet>(`${environment.CONNECTION_URL}/${id}`, {
-      usuarioLogado,
-      nomeCivil,
-      nomeReceita,
-      tituloEleitoral,
-      cpf,
-      rg,
-      dataExpedicaoRg,
-      orgaoExpedidorRg,
-      estadoExpedicaoRg,
-      documentoClasse,
-      municipioNascimento,
-      dataNascimento,
-      nacionalidade,
-      nomeMae,
-      nomePai,
-      deficiencia,
-      qualDeficiencia,
-      telefone1,
-      appsDisponiveis,
-      telefone2,
-      appsDisponiveis2,
-      estadoCivil,
-      racaCor,
-      genero,
-      identidadeGenero,
-      grauInstrucao,
-      ocupacao,
-      informarOutros,
-      adminPublica,
-    });
+  updateSheet(id: number, formData: any): Observable<UserSheet> {
+    return this.http.put<UserSheet>(`${this.apiUrl}/${id}`, formData);
+  }
+
+  getData(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  addData(rowData: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, rowData);
   }
 }

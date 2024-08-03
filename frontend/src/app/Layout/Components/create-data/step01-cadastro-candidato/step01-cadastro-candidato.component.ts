@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { UserSheet } from 'src/app/Layout/Models/UserSheet';
+import { SheetService } from 'src/app/Layout/Services/ServiceSheet/sheet.service';
 
 @Component({
   selector: 'app-step01-cadastro-candidato',
@@ -8,11 +11,13 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class Step01CadastroCandidatoComponent implements OnInit, OnChanges {
   @Input() googleSheetForm!: FormGroup;
+  data$!: Observable<UserSheet[]>;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private sheetService: SheetService) {}
 
   ngOnInit(): void {
     // Initialization logic that doesn't depend on @Input properties can go here
+    this.loadData();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -30,7 +35,7 @@ export class Step01CadastroCandidatoComponent implements OnInit, OnChanges {
     this.googleSheetForm.addControl('dataExpedicaoRg', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('orgaoExpedidorRg', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('estadoExpedicaoRg', this.fb.control('', Validators.required));
-    this.googleSheetForm.addControl('documentoClasse', this.fb.control('', Validators.required));
+    this.googleSheetForm.addControl('documentoClasse', this.fb.control(''));
     this.googleSheetForm.addControl('municipioNascimento', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('dataNascimento', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('nacionalidade', this.fb.control('', Validators.required));
@@ -50,5 +55,22 @@ export class Step01CadastroCandidatoComponent implements OnInit, OnChanges {
     this.googleSheetForm.addControl('ocupacao', this.fb.control('', Validators.required));
     this.googleSheetForm.addControl('informarOutros', this.fb.control(''));
     this.googleSheetForm.addControl('adminPublica', this.fb.control('', Validators.required));
+  }
+
+  loadData() {
+    this.data$ = this.sheetService.getData();
+    this.data$.subscribe(data => {
+      console.log('Data from Google Sheets:', data);
+    });
+  }
+
+  onSubmit() {
+    if (this.googleSheetForm.valid) {
+      const formData: UserSheet = this.googleSheetForm.value;
+      this.sheetService.addData(formData).subscribe(response => {
+        console.log('Data added to Google Sheets:', response);
+        this.loadData();
+      });
+    }
   }
 }

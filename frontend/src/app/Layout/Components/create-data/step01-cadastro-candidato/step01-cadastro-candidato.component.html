@@ -1,13 +1,13 @@
-<div [formGroup]="googleSheetForm">
+<form [formGroup]="googleSheetForm" (ngSubmit)="onSubmit()">
   <!-- Nome civil ou social completo: -->
   <div class="mb-4">
     <label for="nomeCivil" class="block text-sm font-medium text-gray-700">Nome civil ou social completo:</label>
-    <input id="nomeCivil" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="nomeCivil" required>
+    <input id="nomeCivil" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeCivil" required>
   </div>
   <!-- Nome de acordo com a receita federal: -->
   <div class="mb-4">
     <label for="nomeReceita" class="block text-sm font-medium text-gray-700">Nome de acordo com a receita federal:</label>
-    <input id="nomeReceita" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="nomeReceita" required>
+    <input id="nomeReceita" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeReceita" required>
   </div>
   <!-- Título eleitoral: -->
   <div class="mb-4">
@@ -28,7 +28,7 @@
   <!-- Órgão Expedidor do RG: -->
   <div class="mb-4">
     <label for="orgaoExpedidorRg" class="block text-sm font-medium text-gray-700">Órgão Expedidor do RG:</label>
-    <input id="orgaoExpedidorRg" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="orgaoExpedidorRg" required>
+    <input id="orgaoExpedidorRg" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="orgaoExpedidorRg" required>
   </div>
   <!-- Estado de expedição do RG -->
   <div class="mb-4">
@@ -37,12 +37,12 @@
   <!-- Número do documento de entidade de classe, como CREA, OAB -->
   <div class="mb-4">
     <label for="documentoClasse" class="block text-sm font-medium text-gray-700">Número do documento de entidade de classe, como CREA, OAB, ou outros registros válidos:</label>
-    <input id="documentoClasse" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="documentoClasse">
+    <input id="documentoClasse" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="documentoClasse">
   </div>
   <!-- Município de Nascimento -->
   <div class="mb-4">
     <label for="municipioNascimento" class="block text-sm font-medium text-gray-700">Município de Nascimento:</label>
-    <input id="municipioNascimento" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="municipioNascimento" required>
+    <input id="municipioNascimento" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="municipioNascimento" required>
   </div>
   <!-- Data de Nascimento -->
   <div class="mb-4">
@@ -51,17 +51,17 @@
   <!-- Nacionalidade  -->
   <div class="mb-4">
     <label for="nacionalidade" class="block text-sm font-medium text-gray-700">Nacionalidade:</label>
-    <input id="nacionalidade" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="nacionalidade" required>
+    <input id="nacionalidade" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nacionalidade" required>
   </div>
   <!-- Nome da mãe -->
   <div class="mb-4">
     <label for="nomeMae" class="block text-sm font-medium text-gray-700">Nome da mãe:</label>
-    <input id="nomeMae" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="nomeMae" required>
+    <input id="nomeMae" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeMae" required>
   </div>
   <!-- Nome do pai -->
   <div class="mb-4">
     <label for="nomePai" class="block text-sm font-medium text-gray-700">Nome do pai:</label>
-    <input id="nomePai" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="nomePai">
+    <input id="nomePai" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomePai">
   </div>
   <!-- É portador(a) de deficiência? -->
   <div class="mb-4 border border-gray-300 p-2 rounded">
@@ -78,7 +78,7 @@
     </div>
     <div class="mt-2">
       <label for="qualDeficiencia" class="block text-sm font-medium text-gray-700">Se sim, qual?</label>
-      <input id="qualDeficiencia" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="qualDeficiencia">
+      <input id="qualDeficiencia" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="qualDeficiencia">
     </div>
   </div>
   <!-- Telefone 1 -->
@@ -97,17 +97,17 @@
   <div class="mb-4">
     <app-select-raca [formGroup]="googleSheetForm"></app-select-raca>
   </div>
-  <!-- Genero -->
+  <!-- Gênero -->
   <div class="mb-4">
     <label for="genero" class="block text-sm font-medium text-gray-700">Gênero:</label>
-    <select id="genero" matNativeControl class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="genero" required>
+    <select id="genero" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="genero" required>
       <option value="feminino">Feminino</option>
       <option value="masculino">Masculino</option>
     </select>
   </div>
   <div class="mb-4">
     <label for="identidadeGenero" class="block text-sm font-medium text-gray-700">Identidade de gênero:</label>
-    <input id="identidadeGenero" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="identidadeGenero">
+    <input id="identidadeGenero" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="identidadeGenero">
   </div>
   <!-- Grau de instrução -->
   <div class="mb-4">
@@ -118,7 +118,7 @@
   </div>
   <div class="mb-4">
     <label for="informarOutros" class="block text-sm font-medium text-gray-700">Informe outros aqui:</label>
-    <input id="informarOutros" matInput class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" formControlName="informarOutros">
+    <input id="informarOutros" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="informarOutros">
   </div>
   <div class="mb-4 border border-gray-300 p-2 rounded">
     <label class="block text-sm font-medium text-gray-700">Ocupou cargo nos últimos 6 meses na administração pública?</label>
@@ -133,4 +133,5 @@
       </label>
     </div>
   </div>
-</div>
+  <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Enviar</button>
+</form>
