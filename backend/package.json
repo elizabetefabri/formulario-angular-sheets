@@ -11,8 +11,12 @@
   "license": "ISC",
   "description": "Backend mock desenvolvido para efetuar login",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "json-server": "^0.17.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "googleapis": "^140.0.1",
+    "json-server": "^0.17.4",
     "json-server-auth": "^2.1.0"
   }
 }
