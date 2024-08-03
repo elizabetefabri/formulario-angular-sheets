@@ -13,9 +13,24 @@ router.get('/data', async (req, res) => {
 
 router.post('/data', async (req, res) => {
   try {
+    const {
+      nomeCivil, nomeReceita, tituloEleitoral, cpf, rg, dataExpedicaoRg, orgaoExpedidorRg,
+      estadoExpedicaoRg, documentoClasse, municipioNascimento, dataNascimento,
+      nacionalidade, nomeMae, nomePai, deficiencia, qualDeficiencia, telefone1,
+      appsDisponiveis, telefone2, appsDisponiveis2, estadoCivil, racaCor, genero,
+      identidadeGenero, grauInstrucao, ocupacao, informarOutros, adminPublica
+    } = req.body;
+
     const values = [
-      [req.body.id, req.body.name, req.body.email]
+      [
+        nomeCivil, nomeReceita, tituloEleitoral, cpf, rg, dataExpedicaoRg, orgaoExpedidorRg,
+        estadoExpedicaoRg, documentoClasse, municipioNascimento, dataNascimento,
+        nacionalidade, nomeMae, nomePai, deficiencia, qualDeficiencia, telefone1,
+        appsDisponiveis, telefone2, appsDisponiveis2, estadoCivil, racaCor, genero,
+        identidadeGenero, grauInstrucao, ocupacao, informarOutros, adminPublica
+      ]
     ];
+
     const response = await appendData(values);
     res.json(response);
   } catch (error) {
