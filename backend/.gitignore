@@ -2,7 +2,7 @@ coverage/
 node_modules/
 .DS_Store
 *.log
-
+.env
 # Editor directories and files
 .idea
 .vscode
