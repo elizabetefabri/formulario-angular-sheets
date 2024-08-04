@@ -21,12 +21,15 @@ router.post('/', async (req, res) => {
       identidadeGenero, grauInstrucao, ocupacao, informarOutros, adminPublica
     } = req.body;
 
+    const formattedAppsDisponiveis = Array.isArray(appsDisponiveis) ? appsDisponiveis.join(", ") : appsDisponiveis;
+    const formattedAppsDisponiveis2 = Array.isArray(appsDisponiveis2) ? appsDisponiveis2.join(", ") : appsDisponiveis2;
+
     const values = [
       [
         nomeCivil, nomeReceita, tituloEleitoral, cpf, rg, dataExpedicaoRg, orgaoExpedidorRg,
         estadoExpedicaoRg, documentoClasse, municipioNascimento, dataNascimento,
         nacionalidade, nomeMae, nomePai, deficiencia, qualDeficiencia, telefone1,
-        appsDisponiveis, telefone2, appsDisponiveis2, estadoCivil, racaCor, genero,
+        formattedAppsDisponiveis, telefone2, formattedAppsDisponiveis2, estadoCivil, racaCor, genero,
         identidadeGenero, grauInstrucao, ocupacao, informarOutros, adminPublica
       ]
     ];
